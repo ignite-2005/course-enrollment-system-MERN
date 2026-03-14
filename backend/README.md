@@ -1,35 +1,38 @@
-Backend (Node.js/Express/MongoDB)
-=================================
+# 🛠️ Course Enrollment Backend
 
-Env variables (create `.env` in backend/):
+This is the Node.js/Express API for the Course Enrollment System. It handles authentication, course management, and enrollment logic using MongoDB.
 
-- PORT=5000
-- MONGODB_URI=mongodb://127.0.0.1:27017/mern_course_enrollment
-- JWT_SECRET=please_change_me
-- JWT_EXPIRES_IN=7d
-- CORS_ORIGIN=http://localhost:5173
+## ⚙️ Environment Variables
 
-Scripts:
+To run this server, you must create a `.env` file in this directory with the following variables:
 
-- npm run dev        # start with nodemon
-- npm start          # start server
-- npm run seed       # seed database with sample data
+| Variable | Description | Example Value |
+| :--- | :--- | :--- |
+| `PORT` | The port the server runs on | `5000` |
+| `MONGODB_URI` | Your MongoDB connection string | `mongodb://localhost:27017/dbname` |
+| `JWT_SECRET` | Secret key for signing tokens | `your_random_secret_string` |
+| `JWT_EXPIRES_IN` | Token expiration time | `7d` |
+| `CORS_ORIGIN` | Allowed frontend URL | `http://localhost:5173` |
 
-API Overview:
+## 🚀 Available Scripts
 
-- GET /api/health
-- POST /api/auth/register
-- POST /api/auth/login
-- GET /api/auth/me
-- GET /api/courses?programId=&semester=&active=
-- POST /api/courses           (staff/admin)
-- PUT /api/courses/:id        (staff/admin)
-- DELETE /api/courses/:id     (admin)
-- GET /api/enrollments/me
-- POST /api/enrollments       body: { courseId }
-- POST /api/enrollments/:id/drop
-- GET /api/admin/programs     (staff/admin)
-- POST /api/admin/programs    (staff/admin)
-- POST /api/admin/courses/bulk (staff/admin)
+- `npm run dev`: Starts the server in development mode using **Nodemon** (auto-restarts on save).
+- `npm start`: Starts the server in production mode.
+- `npm run seed`: Clears the database and populates it with sample Admin, Staff, and Student accounts.
 
+## 🛣️ API Endpoints Summary
 
+### Authentication
+- `POST /api/auth/register` - Create a new account.
+- `POST /api/auth/login` - Get a JWT token.
+- `GET /api/auth/me` - Get current user profile (Requires Token).
+
+### Courses & Programs
+- `GET /api/courses` - Fetch courses with optional filters (semester, program).
+- `POST /api/courses` - Create a course (Staff/Admin only).
+- `POST /api/admin/courses/bulk` - Bulk upload courses from JSON (Admin only).
+
+### Enrollments
+- `GET /api/enrollments/me` - View current student's enrollments.
+- `POST /api/enrollments` - Enroll in a course (Student only).
+- `POST /api/enrollments/:id/drop` - Drop a course.
