@@ -1,16 +1,15 @@
-# React + Vite
+# 💻 Course Enrollment Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Built with **React.js** and **Vite**, this is the client-side application for the Course Enrollment System. It provides a dynamic, responsive interface for students and administrators.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- **State Management:** Uses React Context API to manage user authentication state globally.
+- **Protected Routes:** Custom route guarding to prevent unauthorized access to Admin/Staff dashboards.
+- **Form Handling:** Controlled components for login, registration, and course management.
+- **API Integration:** Centralized Axios client for handling requests to the Node.js backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Development Setup
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Installation
+```bash
+npm install
