@@ -1,58 +1,38 @@
-Course Enrollment MERN App
-==========================
+# Course Enrollment System (MERN) 🎓
 
-A full-stack MERN application to streamline course registration for students and staff.
+> **PESUIO Capstone Project** > Developed during 3rd Semester | Full-Stack Web Development Course
 
-Prerequisites
--------------
+## 📖 Project Description
+The **Course Enrollment System** is a full-stack MERN application designed to automate and simplify the academic registration process. It provides a centralized platform for students to manage their course loads and for university staff to maintain the curriculum.
+
+### 🧠 How the Project Works (Logic)
+* **Authentication & Security:** The system uses **JSON Web Tokens (JWT)** for secure sessions. When a user logs in, the server generates a token that determines their access level (Student, Staff, or Admin).
+* **Database Architecture:** Using **MongoDB and Mongoose**, the system manages relationships between Users, Programs (degrees), Courses, and Enrollments.
+* **Role-Based Access Control (RBAC):** * **Students:** Can browse active courses and enroll/drop based on availability.
+    * **Staff:** Can manage course details and view enrollments.
+    * **Admins:** Have full control, including **Bulk Data Upload** to prepare for new semesters quickly.
+* **State Management:** The frontend uses **React Context API** to keep user authentication data consistent across all pages without needing to refresh.
+
+
+
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** React.js (Vite), React Router, Axios
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (Mongoose ODM)
+- **Security:** Bcrypt (Password Hashing) & JWT Authorization
+
+---
+
+## 🚀 Installation & Setup
+
+### 1. Prerequisites
 - Node.js 18+
-- MongoDB running locally or a MongoDB URI
+- MongoDB (Local or Atlas)
 
-Backend Setup
--------------
-1. cd backend
-2. npm install
-3. Create a `.env` file:
-   PORT=5000
-   MONGODB_URI=mongodb://127.0.0.1:27017/mern_course_enrollment
-   JWT_SECRET=please_change_me
-   JWT_EXPIRES_IN=7d
-   CORS_ORIGIN=http://localhost:5173
-4. Seed sample data:
-   npm run seed
-5. Start the server:
-   npm run dev
-
-Frontend Setup
---------------
-1. cd frontend
-2. npm install
-3. Create a `.env` file if needed to override API base:
-   VITE_API_BASE=http://localhost:5000/api
-4. Start the app:
-   npm run dev
-
-Login credentials (after seeding)
----------------------------------
-- Admin: admin@example.com / admin123
-- Staff: staff@example.com / staff123
-- Student: alice@example.com / student123
-
-Key API Endpoints
------------------
-- GET /api/health
-- POST /api/auth/register
-- POST /api/auth/login
-- GET /api/auth/me
-- GET /api/courses?programId=&semester=&active=
-- POST /api/courses                 (staff/admin)
-- PUT /api/courses/:id              (staff/admin)
-- DELETE /api/courses/:id           (admin)
-- GET /api/enrollments/me
-- POST /api/enrollments             body: { courseId }
-- POST /api/enrollments/:id/drop
-- GET /api/admin/programs           (staff/admin)
-- POST /api/admin/programs          (staff/admin)
-- POST /api/admin/courses/bulk      (staff/admin)
-
-
+### 2. Backend Setup
+1. Open terminal in the `backend` folder:
+   ```bash
+   cd backend
+   npm install
